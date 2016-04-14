@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		716B34461B4E07F9003F2F08 /* UZUINavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 716B34411B4E07F9003F2F08 /* UZUINavigationView.m */; };
+		716B34471B4E07F9003F2F08 /* UZUISearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 716B34431B4E07F9003F2F08 /* UZUISearchBar.m */; };
+		716B34481B4E07F9003F2F08 /* UZUISearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 716B34451B4E07F9003F2F08 /* UZUISearchVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		717669B51B4D076B00CC3ED4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		716B34401B4E07F9003F2F08 /* UZUINavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZUINavigationView.h; sourceTree = "<group>"; };
+		716B34411B4E07F9003F2F08 /* UZUINavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZUINavigationView.m; sourceTree = "<group>"; };
+		716B34421B4E07F9003F2F08 /* UZUISearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZUISearchBar.h; sourceTree = "<group>"; };
+		716B34431B4E07F9003F2F08 /* UZUISearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZUISearchBar.m; sourceTree = "<group>"; };
+		716B34441B4E07F9003F2F08 /* UZUISearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZUISearchVC.h; sourceTree = "<group>"; };
+		716B34451B4E07F9003F2F08 /* UZUISearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UZUISearchVC.m; sourceTree = "<group>"; };
+		717669B71B4D076B00CC3ED4 /* libUISearchBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUISearchBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		717669DA1B4D07F700CC3ED4 /* UZAppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZAppUtils.h; sourceTree = "<group>"; };
+		717669DB1B4D07F700CC3ED4 /* NSDictionaryUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryUtils.h; sourceTree = "<group>"; };
+		717669DC1B4D07F700CC3ED4 /* UZModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UZModule.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		717669B41B4D076B00CC3ED4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		717669AE1B4D076B00CC3ED4 = {
+			isa = PBXGroup;
+			children = (
+				717669DA1B4D07F700CC3ED4 /* UZAppUtils.h */,
+				717669DB1B4D07F700CC3ED4 /* NSDictionaryUtils.h */,
+				717669DC1B4D07F700CC3ED4 /* UZModule.h */,
+				717669B91B4D076B00CC3ED4 /* UISearchBar */,
+				717669B81B4D076B00CC3ED4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		717669B81B4D076B00CC3ED4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				717669B71B4D076B00CC3ED4 /* libUISearchBar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		717669B91B4D076B00CC3ED4 /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				716B34401B4E07F9003F2F08 /* UZUINavigationView.h */,
+				716B34411B4E07F9003F2F08 /* UZUINavigationView.m */,
+				716B34421B4E07F9003F2F08 /* UZUISearchBar.h */,
+				716B34431B4E07F9003F2F08 /* UZUISearchBar.m */,
+				716B34441B4E07F9003F2F08 /* UZUISearchVC.h */,
+				716B34451B4E07F9003F2F08 /* UZUISearchVC.m */,
+			);
+			path = UISearchBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		717669B61B4D076B00CC3ED4 /* UISearchBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717669CB1B4D076B00CC3ED4 /* Build configuration list for PBXNativeTarget "UISearchBar" */;
+			buildPhases = (
+				717669B31B4D076B00CC3ED4 /* Sources */,
+				717669B41B4D076B00CC3ED4 /* Frameworks */,
+				717669B51B4D076B00CC3ED4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UISearchBar;
+			productName = UISearchBar;
+			productReference = 717669B71B4D076B00CC3ED4 /* libUISearchBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		717669AF1B4D076B00CC3ED4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = apicloud;
+				TargetAttributes = {
+					717669B61B4D076B00CC3ED4 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 717669B21B4D076B00CC3ED4 /* Build configuration list for PBXProject "UISearchBar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 717669AE1B4D076B00CC3ED4;
+			productRefGroup = 717669B81B4D076B00CC3ED4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				717669B61B4D076B00CC3ED4 /* UISearchBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		717669B31B4D076B00CC3ED4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				716B34471B4E07F9003F2F08 /* UZUISearchBar.m in Sources */,
+				716B34481B4E07F9003F2F08 /* UZUISearchVC.m in Sources */,
+				716B34461B4E07F9003F2F08 /* UZUINavigationView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		717669C91B4D076B00CC3ED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		717669CA1B4D076B00CC3ED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		717669CC1B4D076B00CC3ED4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UISearchBar",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		717669CD1B4D076B00CC3ED4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UISearchBar",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		717669B21B4D076B00CC3ED4 /* Build configuration list for PBXProject "UISearchBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717669C91B4D076B00CC3ED4 /* Debug */,
+				717669CA1B4D076B00CC3ED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		717669CB1B4D076B00CC3ED4 /* Build configuration list for PBXNativeTarget "UISearchBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				717669CC1B4D076B00CC3ED4 /* Debug */,
+				717669CD1B4D076B00CC3ED4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 717669AF1B4D076B00CC3ED4 /* Project object */;
+}

@@ -1,0 +1,8 @@
+{
+	modules:[
+		{
+			name:'UISearchBar',
+			class:"com.uzmap.pkg.uzmodules.UISearchBar.UzSearchBar"
+		}
+	]
+}
