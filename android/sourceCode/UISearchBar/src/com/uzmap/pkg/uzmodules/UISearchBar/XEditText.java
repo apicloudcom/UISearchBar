@@ -8,6 +8,7 @@ package com.uzmap.pkg.uzmodules.UISearchBar;
 
 import com.uzmap.pkg.uzcore.uzmodule.UZModuleContext;
 import com.uzmap.pkg.uzkit.UZUtility;
+
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;

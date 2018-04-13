@@ -6,7 +6,6 @@
  */
 
 package com.uzmap.pkg.uzmodules.UISearchBar;
-
 import android.graphics.Bitmap;
 
 public class ConfigParam {
@@ -36,6 +35,9 @@ public class ConfigParam {
 	public Bitmap cancel_bg_bitmap;
 	public int cancal_color = 0xFFD2691E;
 	public int cancel_size = 16;
+	public int cancel_width;
+	
+	public int cancel_marginR;
 
 	public int navBgColor = 0xFFFFFFFF;
 	public int navBorderColor = 0xFFCCCCCC;

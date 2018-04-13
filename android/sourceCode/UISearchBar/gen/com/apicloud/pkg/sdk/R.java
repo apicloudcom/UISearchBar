@@ -8,60 +8,49 @@
 package com.apicloud.pkg.sdk;
 
 public final class R {
-    public static final class anim {
-        public static final int slide_in_from_bottom=0x7f040000;
-        public static final int slide_in_from_top=0x7f040001;
-        public static final int slide_out_to_bottom=0x7f040002;
-        public static final int slide_out_to_top=0x7f040003;
-    }
     public static final class attr {
     }
     public static final class drawable {
         public static final int img_delete_text=0x7f020000;
-        public static final int mo_searchbar_bg=0x7f020001;
-        public static final int mo_searchbar_click_state=0x7f020002;
-        public static final int mo_searchbar_record_normal=0x7f020003;
-        public static final int mo_searchbar_record_selected=0x7f020004;
-        public static final int uz_icon=0x7f020005;
-        public static final int uz_pull_down_refresh_arrow=0x7f020006;
-        public static final int uz_splash_bg=0x7f020007;
-        public static final int uz_thumb_hor=0x7f020008;
-        public static final int uz_thumb_ver=0x7f020009;
+        public static final int mo_cus_refresh_default=0x7f020001;
+        public static final int mo_scrollpicture_img_switcher_bg=0x7f020002;
+        public static final int mo_scrollpicture_img_switcher_bg0=0x7f020003;
+        public static final int mo_scrollpicture_img_switcher_bg1=0x7f020004;
+        public static final int mo_scrollpicture_img_switcher_bg2=0x7f020005;
+        public static final int mo_scrollpicture_img_switcher_bg3=0x7f020006;
+        public static final int mo_searchbar_bg=0x7f020007;
+        public static final int mo_searchbar_click_state=0x7f020008;
+        public static final int mo_searchbar_record_normal=0x7f020009;
+        public static final int mo_searchbar_record_selected=0x7f02000a;
+        public static final int uz_icon=0x7f02000b;
+        public static final int uz_splash_bg=0x7f02000c;
     }
     public static final class id {
-        public static final int edt_input=0x7f070005;
-        public static final int img_delete=0x7f070007;
-        public static final int img_record=0x7f070006;
-        public static final int item_border_line=0x7f070002;
-        public static final int list_bottom_line=0x7f07000b;
-        public static final int listview=0x7f07000a;
-        public static final int nav_bar_line=0x7f070009;
-        public static final int rl_edit=0x7f070004;
-        public static final int rl_navigation=0x7f070003;
-        public static final int tv_cancel=0x7f070008;
-        public static final int tv_clean=0x7f070000;
-        public static final int tv_listview=0x7f070001;
+        public static final int btn=0x7f060001;
+        public static final int edt_input=0x7f060007;
+        public static final int img_delete=0x7f060009;
+        public static final int img_record=0x7f060008;
+        public static final int item_border_line=0x7f060004;
+        public static final int list_bottom_line=0x7f06000d;
+        public static final int listview=0x7f06000c;
+        public static final int nav_bar_line=0x7f06000b;
+        public static final int rl_edit=0x7f060006;
+        public static final int rl_navigation=0x7f060005;
+        public static final int text=0x7f060000;
+        public static final int tv_cancel=0x7f06000a;
+        public static final int tv_clean=0x7f060002;
+        public static final int tv_listview=0x7f060003;
     }
     public static final class layout {
-        public static final int mo_searchbar_clean_item=0x7f030000;
-        public static final int mo_searchbar_listview_item=0x7f030001;
-        public static final int mo_uisearchbar_main=0x7f030002;
+        public static final int mo_demo_main_activity=0x7f030000;
+        public static final int mo_searchbar_clean_item=0x7f030001;
+        public static final int mo_searchbar_listview_item=0x7f030002;
+        public static final int mo_uisearchbar_main=0x7f030003;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int back=0x7f050001;
-        public static final int browser_dialog_error=0x7f050009;
-        public static final int browser_exitdialog_app_text=0x7f050007;
-        public static final int browser_exitdialog_msg=0x7f050008;
-        public static final int browser_init_error=0x7f05000a;
-        public static final int cancel=0x7f050003;
-        public static final int complete=0x7f050005;
-        public static final int confirm=0x7f050002;
-        public static final int exit=0x7f050006;
-        public static final int prompt=0x7f050004;
+        public static final int app_name=0x7f040000;
     }
     public static final class style {
-        public static final int ActionSheet=0x7f060001;
-        public static final int AppTheme=0x7f060000;
+        public static final int AppTheme=0x7f050000;
     }
 }

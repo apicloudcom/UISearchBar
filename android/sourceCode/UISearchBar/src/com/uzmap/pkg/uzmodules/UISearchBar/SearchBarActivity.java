@@ -138,6 +138,7 @@ public class SearchBarActivity extends Activity {
 
 			JSONObject cancelObj = stylesObj.optJSONObject("cancel");
 			if (cancelObj != null) {
+				
 				if (!cancelObj.isNull("bg")) {
 					String cancelBgStr = cancelObj.optString("bg");
 					Bitmap cancelBgBitmap = generateBitmap(cancelBgStr);
@@ -155,7 +156,15 @@ public class SearchBarActivity extends Activity {
 				if (!cancelObj.isNull("size")) {
 					config.cancel_size = cancelObj.optInt("size");
 				}
-
+				
+				if(!cancelObj.isNull("width")){
+					config.cancel_width = UZUtility.dipToPix(cancelObj.optInt("width"));
+				}
+				
+				if(!cancelObj.isNull("marginR")){
+					config.cancel_marginR = UZUtility.dipToPix(cancelObj.optInt("marginR"));
+				}
+				
 			}
 
 			JSONObject navBarObj = stylesObj.optJSONObject("navBar");
@@ -381,7 +390,8 @@ public class SearchBarActivity extends Activity {
 
 				SearchBarActivity.this.finish();
 				clearText();
-
+				hide();
+				
 			}
 		});
 	}
@@ -489,16 +499,30 @@ public class SearchBarActivity extends Activity {
 		double cancelRealWidth = width * 0.15;
 
 		int space = (width - (int) realWidth - (int) cancelRealWidth - UZUtility.dipToPix(5)) / 2;
-
-		LayoutParams cancalTxtParam = new LayoutParams((int) cancelRealWidth, UZUtility.dipToPix(config.searchBoxHeight));
+		
+		int cancelWidth = (int)cancelRealWidth;
+		
+		if(config.cancel_width > 0){
+			cancelWidth = config.cancel_width;
+		}
+		
+		
+		
+		LayoutParams cancalTxtParam = new LayoutParams(cancelWidth, UZUtility.dipToPix(config.searchBoxHeight));
 
 		cancalTxtParam.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		cancalTxtParam.addRule(RelativeLayout.CENTER_VERTICAL);
 
 		cancalTxtParam.rightMargin = space;
 		cancalTxtParam.leftMargin = space;
+		
+		if(config.cancel_marginR > 0){
+			cancalTxtParam.rightMargin = config.cancel_marginR;
+		}
 
 		mTextView.setLayoutParams(cancalTxtParam);
+		
+		mTextView.setSingleLine();
 
 		mListView.setBackgroundColor(config.list_bg_color);
 

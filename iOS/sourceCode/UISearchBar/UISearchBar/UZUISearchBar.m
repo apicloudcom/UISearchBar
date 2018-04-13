@@ -73,8 +73,17 @@
     animationUI = [paramsDict boolValueForKey:@"animation" defaultValue:YES];
     NSString *customName = [paramsDict stringValueForKey:@"dataBase" defaultValue:@"UISearchBarData"];
     dataBaseName = [NSString stringWithFormat:@"UISearchBar%@",customName];
+    float mainScreenWidth =[UIScreen mainScreen].bounds.size.width;
+    float inputMarginL = [searchBox floatValueForKey:@"marginL" defaultValue:5];
+    float inputWidth = [searchBox floatValueForKey:@"width" defaultValue:mainScreenWidth*0.75];
+    float cancelWidth = [cancel floatValueForKey:@"width" defaultValue:mainScreenWidth*0.2];
+    float cencalMarginR = [cancel floatValueForKey:@"marginR" defaultValue:mainScreenWidth*0.025];
     //打开搜索视图
     _searchUIView = [[UZUISearchVC alloc] initWithName:dataBaseName];
+    _searchUIView.textUIFieldWidth = inputWidth;
+    _searchUIView.inputMarginL = inputMarginL;
+    _searchUIView.cancelBtnWidth = cancelWidth;
+    _searchUIView.cancelBtnMarginR = cencalMarginR;
     _searchUIView.delegate = self;
     _searchUIView.placeholderUI = placeholder;
     _searchUIView.bgImgUI = bgImg;
@@ -88,7 +97,6 @@
     _searchUIView.isUIAnimation = animationUI;
     _searchUIView.recordUICount = recordCount;
     _searchUIView.textFieldHeight = textFieldHeight;
-    _searchUIView.textUIFieldWidth = [UIScreen mainScreen].bounds.size.width*0.75;
     _searchUIView.listUIColor = listColor;
     _searchUIView.listUISize = listSize;
     _searchUIView.cancelUIBgColor = cancelBgColor;

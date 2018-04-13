@@ -44,7 +44,7 @@
 @property (nonatomic, strong) NSString *listUIColor;
 @property (nonatomic, assign) float listUISize;
 @property (nonatomic, assign) float cleanUISize;
-@property (nonatomic, assign) float textUIFieldWidth;
+@property (nonatomic, assign) float textUIFieldWidth,inputMarginL, cancelBtnWidth, cancelBtnMarginR;
 @property (nonatomic, assign) float textFieldHeight;
 @property (nonatomic, assign) float cancelUISize;
 @property (nonatomic, assign) NSInteger recordUICount;

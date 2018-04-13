@@ -10,6 +10,8 @@
 #import "UZUINavigationView.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define UISearcBarIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
 @interface UZUISearchVC ()
 {
     NSString *dataName;
@@ -91,40 +93,54 @@
     } else {
         nvcBgHeight = self.textFieldHeight;
     }
-    
+    //顶部导航条画板
+    UIView *board = [[UIView alloc]init];
+    if (UISearcBarIsiPhoneX) {
+        board.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+34);
+    } else {
+        board.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+20);
+    }
+    board.backgroundColor = [UZAppUtils colorFromNSString:self.barUIBgColor];
+    [self.view addSubview:board];
     //导航条背景
     UZUINavigationView *nvcBg = [[UZUINavigationView alloc]init];
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
-        nvcBg.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+20);
+    float orY = 0;
+    if (UISearcBarIsiPhoneX) {
+        orY = 34;
     } else {
-        nvcBg.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1);
+        orY = 20;
     }
+    nvcBg.frame = CGRectMake(0, orY, mainScreenWidth, self.textFieldHeight+1);
     nvcBg.backgroundColor = [UZAppUtils colorFromNSString:self.barUIBgColor];
-    [self.view addSubview:nvcBg];
+    [board addSubview:nvcBg];
     
     UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,nvcBg.bounds.size.height-1, mainScreenWidth, 1)];
     lineLabel.backgroundColor = [UZAppUtils colorFromNSString:self.navBC];
     [nvcBg addSubview:lineLabel];
     self.view.backgroundColor = [UZAppUtils colorFromNSString:@"#D3D3D3"];
-    
     //输入框
     UIImageView *bgField = [[UIImageView alloc] init];
-    bgField.image = [UIImage imageWithContentsOfFile:self.bgImgUI];
-    bgField.frame = CGRectMake(5, 25, self.textUIFieldWidth-5, self.textFieldHeight-10);
-    [self.view addSubview:bgField];
+    //背景图拉伸
+    UIImage *inputBgImage = [UIImage imageWithContentsOfFile:self.bgImgUI];
+    //UIEdgeInsets inset1 = UIEdgeInsetsMake(0, 300, 0, 300);
+    //inputBgImage = [inputBgImage resizableImageWithCapInsets:inset1 resizingMode:UIImageResizingModeStretch];
+    bgField.image = inputBgImage;
+    bgField.frame = CGRectMake(self.inputMarginL, 5, self.textUIFieldWidth, self.textFieldHeight-10);
+    [nvcBg addSubview:bgField];
     _textUIField= [[UITextField alloc] init];
-    _textUIField.frame = CGRectMake(15, 25, mainScreenWidth*0.75-15, self.textFieldHeight-10);
+    _textUIField.frame = CGRectMake(self.inputMarginL+10, 6, self.textUIFieldWidth-10, self.textFieldHeight-10);
     _textUIField.placeholder = self.placeholderUI;
     _textUIField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textUIField.delegate = self;
     _textUIField.textColor = [UZAppUtils colorFromNSString:self.textUIColor];
     _textUIField.returnKeyType = UIReturnKeySearch;
-    [self.view addSubview:self.textUIField];
+    [nvcBg addSubview:self.textUIField];
     
     //录音按钮
-    record = [UIButton buttonWithType:UIButtonTypeCustom];
+    //录音按钮的宽
     float recordWidth = self.textFieldHeight-20;
-    record.frame = CGRectMake(_textUIField.bounds.size.width-recordWidth-10, 5, recordWidth, recordWidth);
+    record = [UIButton buttonWithType:UIButtonTypeCustom];
+    record.frame = CGRectMake(_textUIField.bounds.size.width-recordWidth-10, 6, recordWidth, recordWidth);
     NSString *recordImgPath1 = [[NSBundle mainBundle]pathForResource:@"res_searchBar/record_normal" ofType:@"png"];
     NSString *recordImgPath2 = [[NSBundle mainBundle] pathForResource:@"res_searchBar/record_selected" ofType:@"png"];
     [record setImage:[UIImage imageWithContentsOfFile:recordImgPath1] forState:UIControlStateNormal];
@@ -136,7 +152,7 @@
     
     //取消按钮
     UIButton *cancel = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancel.frame = CGRectMake(mainScreenWidth*0.775, 25, mainScreenWidth*0.2, self.textFieldHeight-10);
+    cancel.frame = CGRectMake(mainScreenWidth-self.cancelBtnWidth-self.cancelBtnMarginR, 5, self.cancelBtnWidth, self.textFieldHeight-10);
     [cancel setTitleColor:[UZAppUtils colorFromNSString:self.cancelColorUI] forState:UIControlStateNormal];
     NSString *cancelText = [self.textsUI stringValueForKey:@"cancelText" defaultValue:@"取消"];
     [cancel setTitle:cancelText forState:UIControlStateNormal];
@@ -147,7 +163,7 @@
         [cancel setBackgroundImage:[UIImage imageWithContentsOfFile:[self.delegate getPath:self.cancelUIBgColor]] forState:UIControlStateNormal];
     }
     [cancel addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:cancel];
+    [nvcBg addSubview:cancel];
     
     cellHeight = 44;
     float tableHeight = ([self.dataUISource count] + 1)*cellHeight;
@@ -157,7 +173,7 @@
         tableHeight = mainScreenHeight-nvcBgHeight;
         _historyUI.scrollEnabled = YES;
     }
-    _historyUI.frame = CGRectMake(0, self.textFieldHeight+21, mainScreenWidth, tableHeight);
+    _historyUI.frame = CGRectMake(0, board.frame.size.height, mainScreenWidth, tableHeight);
     _historyUI.delegate = self;
     _historyUI.dataSource = self;
     _historyUI.backgroundColor = [UZAppUtils colorFromNSString:self.lisUItBgColor];
@@ -310,7 +326,11 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    record.hidden = NO;
+    if ([textField.text  isEqual: @""]) {
+        record.hidden = NO;
+    } else {
+        record.hidden = YES;
+    }
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
