@@ -46,7 +46,7 @@
 @property (nonatomic, assign) float cleanUISize;
 @property (nonatomic, assign) float textUIFieldWidth,inputMarginL, cancelBtnWidth, cancelBtnMarginR;
 @property (nonatomic, assign) float textFieldHeight;
-@property (nonatomic, assign) float cancelUISize;
+@property (nonatomic, assign) float cancelUISize, textSize;
 @property (nonatomic, assign) NSInteger recordUICount;
 @property (nonatomic, assign) BOOL isUIAnimation;
 @property (nonatomic, strong) NSDictionary *textsUI;

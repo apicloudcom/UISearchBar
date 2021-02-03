@@ -19,6 +19,7 @@
 }
 
 @property (nonatomic, strong) UZUISearchVC *searchUIView;
+@property (nonatomic, strong) NSString *searchTextStr;
 
 @end
 
@@ -27,9 +28,6 @@
 @synthesize searchUIView = _searchUIView;
 
 - (void)dispose {
-    if (cbIDUI >= 0) {
-        [self deleteCallback:cbIDUI];
-    }
     if (_searchUIView) {
         _searchUIView.delegate = nil;
         self.searchUIView = nil;
@@ -52,6 +50,7 @@
         bgImg = [self getPathWithUZSchemeURL:bgImg];
     }
     NSString *textColor = [searchBox stringValueForKey:@"color" defaultValue:@"#000000"];
+    float textSize = [searchBox floatValueForKey:@"size" defaultValue:14];
     float  textFieldHeight = [searchBox floatValueForKey:@"height" defaultValue:44];
     NSDictionary *cancel = [styles dictValueForKey:@"cancel" defaultValue:@{}];
     NSString *cancelColor = [cancel stringValueForKey:@"color" defaultValue:@"#D2691E"];
@@ -90,6 +89,7 @@
     _searchUIView.cancelUISize = cancelSize;
     _searchUIView.cancelColorUI = cancelColor;
     _searchUIView.textUIColor = textColor;
+    _searchUIView.textSize = textSize;
     _searchUIView.barUIBgColor = barBgColor;
     _searchUIView.lisUItBgColor = listBgColor;
     _searchUIView.cleanUISize = cleanSize;
@@ -105,7 +105,10 @@
     _searchUIView.navBC = borderColor;
     _searchUIView.listBC = listBC;
     _searchUIView.clearBC = clearBC;
-    
+    if (self.searchTextStr) {
+        [_searchUIView.textUIField setText:self.searchTextStr];
+        self.searchTextStr = nil;
+    }
     [self.viewController presentViewController:_searchUIView animated:animationUI completion:nil];
 }
 
@@ -114,8 +117,8 @@
 }
 
 - (void)setText:(NSDictionary*)paramaDict {
-    NSString *text = [paramaDict stringValueForKey:@"text" defaultValue:@""];
-    [_searchUIView.textUIField setText:text];
+    self.searchTextStr = [paramaDict stringValueForKey:@"text" defaultValue:@""];
+    //[_searchUIView.textUIField setText:text];
 }
 
 - (void)clearHistory:(NSDictionary*)paramsDict {

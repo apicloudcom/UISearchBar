@@ -10,7 +10,19 @@
 #import "UZUINavigationView.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define UISearcBarIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//#define UISearcBarIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define UI_IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+//判断iPHoneXr
+#define SCREENSIZE_IS_XR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
+
+#define SCREENSIZE_IS_XRs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
+//判断iPHoneX、iPHoneXs
+#define SCREENSIZE_IS_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
+#define SCREENSIZE_IS_XS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
+
+//判断iPhoneXs Max
+#define SCREENSIZE_IS_XS_MAX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !UI_IS_IPAD : NO)
 
 @interface UZUISearchVC ()
 {
@@ -62,7 +74,8 @@
 
 - (id)initWithName:(NSString *)storeName {
     self = [super init];
-    if (self) {
+    if (self) { 
+        _textUIField= [[UITextField alloc] init];
         dataName = storeName;
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         NSArray *dataSource = [ud objectForKey:storeName];
@@ -95,8 +108,8 @@
     }
     //顶部导航条画板
     UIView *board = [[UIView alloc]init];
-    if (UISearcBarIsiPhoneX) {
-        board.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+34);
+    if (SCREENSIZE_IS_X || SCREENSIZE_IS_XR || SCREENSIZE_IS_XS || SCREENSIZE_IS_XS_MAX || SCREENSIZE_IS_XRs) {
+        board.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+44);
     } else {
         board.frame = CGRectMake(0, 0, mainScreenWidth, self.textFieldHeight+1+20);
     }
@@ -105,8 +118,8 @@
     //导航条背景
     UZUINavigationView *nvcBg = [[UZUINavigationView alloc]init];
     float orY = 0;
-    if (UISearcBarIsiPhoneX) {
-        orY = 34;
+    if (SCREENSIZE_IS_X || SCREENSIZE_IS_XR || SCREENSIZE_IS_XS || SCREENSIZE_IS_XS_MAX || SCREENSIZE_IS_XRs) {
+        orY = 44;
     } else {
         orY = 20;
     }
@@ -122,17 +135,20 @@
     UIImageView *bgField = [[UIImageView alloc] init];
     //背景图拉伸
     UIImage *inputBgImage = [UIImage imageWithContentsOfFile:self.bgImgUI];
-    //UIEdgeInsets inset1 = UIEdgeInsetsMake(0, 300, 0, 300);
-    //inputBgImage = [inputBgImage resizableImageWithCapInsets:inset1 resizingMode:UIImageResizingModeStretch];
+    float stretchW = 10;
+    float noStretchW = (inputBgImage.size.width - stretchW)/2.0;
+    UIEdgeInsets inset1 = UIEdgeInsetsMake(0, noStretchW, 0, noStretchW);
+    inputBgImage = [inputBgImage resizableImageWithCapInsets:inset1 resizingMode:UIImageResizingModeStretch];
     bgField.image = inputBgImage;
     bgField.frame = CGRectMake(self.inputMarginL, 5, self.textUIFieldWidth, self.textFieldHeight-10);
+    //bgField.contentMode = UIViewContentModeScaleAspectFit;
     [nvcBg addSubview:bgField];
-    _textUIField= [[UITextField alloc] init];
     _textUIField.frame = CGRectMake(self.inputMarginL+10, 6, self.textUIFieldWidth-10, self.textFieldHeight-10);
     _textUIField.placeholder = self.placeholderUI;
     _textUIField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textUIField.delegate = self;
     _textUIField.textColor = [UZAppUtils colorFromNSString:self.textUIColor];
+    _textUIField.font = [UIFont systemFontOfSize:self.textSize];
     _textUIField.returnKeyType = UIReturnKeySearch;
     [nvcBg addSubview:self.textUIField];
     
@@ -297,7 +313,11 @@
 }
 
 - (void)close:(id)btn {
-    [self dismissViewControllerAnimated:isUIAnimation completion:nil];
+    [self dismissViewControllerAnimated:isUIAnimation completion:^{
+        if ([self.delegate respondsToSelector:@selector(backSearchText:type:)]) {
+            [self.delegate backSearchText:@"" type:@"cancel"];
+        }
+    }];
 }
 
 - (void)recordClick:(id)btn {

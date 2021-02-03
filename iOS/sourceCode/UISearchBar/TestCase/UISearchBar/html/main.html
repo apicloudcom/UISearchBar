@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width,initial-scale=1.0'/>
+        <link rel='stylesheet' type='text/css' href='../css/bootstrap.min.css' />
+        <link rel='stylesheet' href='../css/github.css'>
+		<style type='text/css'>
+		  .diy-btn-group-test {margin : 10px 0px 0px 0px;}
+          body{-webkit-user-select:none;}
+		</style>
+    </head>
+    <body>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">UISearchBar 打开</h3>
+  </div>
+  <div class="panel-body">
+		<pre class="pre-scrollable">
+            var obj = api.require('UISearchBar');
+            obj.open({
+                placeholder: '请输入搜索关键字',
+                historyCount: 10,
+                dataBase: 'myda',
+                showRecordBtn: true,
+                texts: {
+                    cancelText: '取消',
+                    clearText: '清除搜索记录'
+                },
+                styles: {
+                    navBar: {
+                        bgColor: '#FFFFFF',
+                        borderColor: '#ccc'
+                    },
+                    searchBox: {
+                        bgImg: '',
+                        color: '#000',
+                        height: 44
+                    },
+                    cancel: {
+                        bg: 'rgba(0,0,0,0)',
+                        color: '#D2691E',
+                        size: 16
+                    },
+                    list: {
+                        color: '#696969',
+                        bgColor: '#FFFFFF',
+                        borderColor: '#eee',
+                        size: 16
+                    },
+                    clear: {
+                        color: '#000000',
+                        borderColor: '#ccc',
+                        size: 16
+                    }
+                }
+            }, function(ret){
+                if(ret.eventType == 'record'){
+                  api.alert({msg: '点击了录音按钮'});
+                } else if(ret.eventType == 'search') {
+                   api.alert({msg: '点击了搜索按钮'});
+                } else if(ret.eventType == 'history') {
+                   api.alert({msg: '点击了历史记录'});
+                } else {
+                   alert(ret.text);
+                }
+            });
+	</pre>
+</div>
+<div class="panel-footer">	
+	<div class="btn-group btn-group-justified">
+	  <div class="btn-group">
+	    <button tapmode="" role="run" type="button" class="btn btn-primary">运行</button>
+	  </div>	  
+	  <div class="btn-group">
+	    <button tapmode=""  role="edit" type="button" class="btn btn-info">编辑</button>
+	  </div>
+	  <div class="btn-group">
+	    <button tapmode=""  role="restore" type="button" class="btn btn-warning">还原</button>
+	  </div>
+	</div>
+</div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">UISearchBar 重设数据源</h3>
+    </div>
+    <div class="panel-body">
+        <pre class="pre-scrollable">
+            var obj= api.require('UISearchBar');
+            obj.close(;
+        </pre>
+    </div>
+    <div class="panel-footer">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                <button tapmode="" role="run" type="button" class="btn btn-primary">运行</button>
+            </div>	  
+            <div class="btn-group">
+                <button tapmode=""  role="edit" type="button" class="btn btn-info">编辑</button>
+            </div>
+            <div class="btn-group">
+                <button tapmode=""  role="restore" type="button" class="btn btn-warning">还原</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">UISearchBar 显示</h3>
+    </div>
+    <div class="panel-body">
+        <pre class="pre-scrollable">
+            var obj= api.require('UISearchBar');
+            obj.setText({
+                text:'设置语音识别的文本'
+            });
+        </pre>
+    </div>
+    <div class="panel-footer">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                <button tapmode="" role="run" type="button" class="btn btn-primary">运行</button>
+            </div>
+            <div class="btn-group">
+                <button tapmode=""  role="edit" type="button" class="btn btn-info">编辑</button>
+            </div>
+            <div class="btn-group">
+                <button tapmode=""  role="restore" type="button" class="btn btn-warning">还原</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">UISearchBar 隐藏</h3>
+    </div>
+    <div class="panel-body">
+        <pre class="pre-scrollable">
+            var obj = api.require('UISearchBar');
+            obj.clearHistory();
+        </pre>
+    </div>
+    <div class="panel-footer">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group">
+                <button tapmode="" role="run" type="button" class="btn btn-primary">运行</button>
+            </div>
+            <div class="btn-group">
+                <button tapmode=""  role="edit" type="button" class="btn btn-info">编辑</button>
+            </div>
+            <div class="btn-group">
+                <button tapmode=""  role="restore" type="button" class="btn btn-warning">还原</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+    <script src="../script/jquery-1.11.1.min.js"></script>
+    <script src='../script/highlight.pack.js'></script>
+    <script src='../script/demo2.js'></script>
+</html>

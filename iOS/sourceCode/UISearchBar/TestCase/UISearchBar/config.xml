@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget id="UISearchBar20171130" version="1.0.0">
+  <name>UISearchBar</name>
+  <description>api demo for api.</description>
+  <author email="developer@apicloud.com" href="http://www.apicloud.com">Developer</author>
+  <content src="index.html"/>
+  <preference name="windowBackground" value="image/bg.png"/>
+  <preference name="autoLaunch" value="true"/>
+  <preference name="autoUpdate" value="true"/>
+  <preference name="smartUpdate" value="true"/>
+  <preference name="debug" value="true"/>
+  <access origin="*"/>
+</widget>

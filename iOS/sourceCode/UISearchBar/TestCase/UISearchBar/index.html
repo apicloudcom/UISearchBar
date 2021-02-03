@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>模块研发中心</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="copyright" content="www.apicloud.com" />
+<link rel="stylesheet" href="./css/common.css">
+<script src="./script/api.js"></script>
+<style type="text/css">
+    html,body{
+        height: 100%
+    }
+body{
+    background-color: #fff;
+    margin: 0;
+}
+#wrap{
+    height: 100%;
+    position: relative;
+}
+#header{
+    padding-top: 20px;
+    background-color: #5082c2;
+    height: 44px;
+    position: relative;
+}
+#header h1{
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+    margin: 0em;
+    color: #fff;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+}
+#main{
+    display: block;
+}
+a.button{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 36px;
+    margin: 8px;
+    background-color: rgba(240,240,240,1.0);
+    border-color: rgba(220,220,220,1.0);
+    border-width: 2px;
+    border-style: solid;
+}
+a.active{
+    background-color: rgba(240,240,240,0.6);
+}
+</style>
+</head>
+<body>
+	<div id="wrap">
+	    <header id='header'>
+	        <nav id="nav">
+	            <div id="middle">
+	                <strong id="title">模块研发中心</strong>
+	            </div>
+	        </nav>
+	    </header>
+    </div>
+</body>
+<script>
+apiready = function() {
+    var header = $api.byId('header');
+    $api.fixIos7Bar(header);
+
+    var headerPos = $api.offset(header);
+
+    api.openFrame({
+        name: 'main',
+        url: './html/main.html',
+        rect:{
+          x:0,
+          y: headerPos.h,
+        }
+    });
+  }
+
+</script>
+</html>
