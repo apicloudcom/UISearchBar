@@ -69,9 +69,11 @@ public class UzSearchBar extends UZModule {
 
 	public void jsmethod_close(UZModuleContext moduleContext) {
 		SearchBarActivity searchBarActivity = Constans.mSearchBarActivity;
+		
 		if (searchBarActivity != null) {
 			searchBarActivity.finish();
 		}
+		
 		SharedPreferences preferences = mContext.getSharedPreferences("text", Context.MODE_PRIVATE);
 		Editor editor = preferences.edit();
 		editor.remove("text");

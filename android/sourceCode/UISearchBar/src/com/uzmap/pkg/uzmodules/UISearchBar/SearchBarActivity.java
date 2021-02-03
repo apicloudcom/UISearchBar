@@ -135,7 +135,11 @@ public class SearchBarActivity extends Activity {
 			if (searchBoxObj != null && !searchBoxObj.isNull("height")) {
 				config.searchBoxHeight = searchBoxObj.optInt("height");
 			}
-
+			
+			if(searchBoxObj != null){
+				config.searchBoxSize = searchBoxObj.optInt("size", 18);
+			}
+			
 			JSONObject cancelObj = stylesObj.optJSONObject("cancel");
 			if (cancelObj != null) {
 				
@@ -392,6 +396,15 @@ public class SearchBarActivity extends Activity {
 				clearText();
 				hide();
 				
+				JSONObject ret = new JSONObject();
+				try {
+					ret.put("eventType", "cancel");
+					mUZContext.success(ret, false);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
 	}
@@ -421,6 +434,8 @@ public class SearchBarActivity extends Activity {
 		if (!config.showRecordBtn) {
 			mRecordImage.setVisibility(View.GONE);
 		}
+		
+		mEditText.setTextSize(config.searchBoxSize);
 
 		int textId = UZResourcesIDFinder.getResIdID("tv_cancel");
 		mTextView = (TextView) findViewById(textId);

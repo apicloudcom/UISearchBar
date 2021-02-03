@@ -30,6 +30,8 @@ public class ConfigParam {
 
 	public int searchBoxWidth = 250;
 	public int searchBoxHeight = 44;
+	
+	public int searchBoxSize = 18;
 
 	public int cancel_bg_color = 0x00000000;
 	public Bitmap cancel_bg_bitmap;

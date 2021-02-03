@@ -18,48 +18,49 @@
 	    
 		function openSearchBar(){
 			var UISearchBar = api.require('UISearchBar');
-UISearchBar.open({
-    placeholder: '请输入搜索关键字',
-    historyCount: 10,
-    showRecordBtn: true,
-    texts: {
-        cancelText: '取消',
-        clearText: '清除搜索记录'
-    },
-    styles: {
-        navBar: {
-            bgColor: '#FFFFFF',
-            borderColor: '#ccc'
-        },
-        searchBox: {
-            bgImg: '',
-            color: '#000',
-            height: 44
-        },
-        cancel: {
-            bg: 'rgba(0,0,0,0)',
-            color: '#D2691E',
-            size: 16,
-        },
-        list: {
-            color: '#696969',
-            bgColor: '#FFFFFF',
-            borderColor: '#eee',
-            size: 16
-        },
-        clear: {
-            color: '#000000',
-            borderColor: '#ccc',
-            size: 16
-        }
-    }
-}, function(ret, err) {
-    if (ret) {
-        alert(JSON.stringify(ret));
-    } else {
-        alert(JSON.stringify(err));
-    }
-});
+			UISearchBar.open({
+    			placeholder: '请输入搜索关键字',
+    			historyCount: 10,
+    			showRecordBtn: true,
+    			texts: {
+        			cancelText: '取消',
+        			clearText: '清除搜索记录'
+    			},
+    			styles: {
+        			navBar: {
+            			bgColor: '#FFFFFF',
+            			borderColor: '#ccc'
+        			},
+        			searchBox: {
+            			bgImg: '',
+            			color: '#000',
+            			height: 44,
+            			size:15
+        			},
+        			cancel: {
+            			bg: 'rgba(0,0,0,0)',
+            			color: '#D2691E',
+            			size: 16,
+        			},
+        			list: {
+            			color: '#696969',
+            			bgColor: '#FFFFFF',
+            			borderColor: '#eee',
+            			size: 16
+        			},
+        			clear: {
+            			color: '#000000',
+            			borderColor: '#ccc',
+            			size: 16
+        			}
+    			}
+			}, function(ret, err) {
+    			if (ret) {
+        			alert(JSON.stringify(ret));
+    			} else {
+        			alert(JSON.stringify(err));
+    			}
+			});
 			
 		}
 	    
